@@ -1,98 +1,484 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Vinit's Portfolio</title>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Vinit Bhanushali Portfolio</title>
+  
+  <!-- Bootstrap CSS -->
+  <link
+    rel="stylesheet"
+    href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+  />
+  <!-- Font Awesome for Icons -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+  />
+  
   <style>
-    body { font-family: Arial, sans-serif; }
-    header { background: #f8f9fa; padding: 4rem 0; }
-    section { padding: 3rem 0; }
-    footer { background: #343a40; color: #fff; padding: 1rem 0; }
-    .nav-link { color: #555 !important; }
-    .card { margin-bottom: 2rem; }
+    /* Global resets & fonts */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: Arial, sans-serif;
+      color: #333;
+      scroll-behavior: smooth;
+    }
+    
+    /* Sidebar */
+    .side-nav {
+      position: fixed;
+      left: 20px;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 999;
+    }
+    .side-nav ul {
+      list-style: none;
+    }
+    .side-nav ul li {
+      margin: 15px 0;
+    }
+    .side-nav ul li a {
+      width: 40px;
+      height: 40px;
+      display: block;
+      background-color: #fff;
+      color: #333;
+      border-radius: 50%;
+      text-align: center;
+      line-height: 40px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+      transition: background 0.3s, color 0.3s;
+    }
+    .side-nav ul li a:hover {
+      background-color: #007bff;
+      color: #fff;
+    }
+
+    /* Hero / Landing Section */
+    #hero {
+      height: 100vh;
+      background: url("images/hero-bg.jpg") center center/cover no-repeat;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: #fff;
+    }
+    #hero::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0,0,0,0.5); /* Overlay */
+    }
+    .hero-content {
+      position: relative;
+      z-index: 1;
+    }
+    .hero-content h1 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+    }
+    .hero-content p {
+      font-size: 1.2rem;
+    }
+
+    /* Section Titles */
+    .section-title {
+      text-align: center;
+      margin-bottom: 2rem;
+      text-transform: uppercase;
+      font-weight: 700;
+      letter-spacing: 1px;
+    }
+    section {
+      padding: 60px 0;
+    }
+
+    /* About Section */
+    #about .container {
+      max-width: 900px;
+    }
+    #about .about-wrapper {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      align-items: center;
+    }
+    #about .about-wrapper img {
+      max-width: 300px;
+      border-radius: 5px;
+      object-fit: cover;
+    }
+    #about .about-info {
+      flex: 1;
+    }
+
+    /* Technical Skills with progress bars */
+    .skill-title {
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+    .progress {
+      height: 20px;
+      background-color: #e9ecef;
+      margin-bottom: 1.5rem;
+    }
+    .progress-bar {
+      font-size: 0.8rem;
+      line-height: 20px;
+    }
+
+    /* Resume Section */
+    #resume .row > div {
+      margin-bottom: 2rem;
+    }
+    #resume h5 {
+      margin-top: 1rem;
+      font-weight: 600;
+    }
+
+    /* Project Work Cards */
+    .project-card {
+      background: #fff;
+      border: 1px solid #eee;
+      border-radius: 5px;
+      padding: 20px;
+      margin-bottom: 30px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      transition: transform 0.2s ease;
+    }
+    .project-card:hover {
+      transform: translateY(-5px);
+    }
+
+    /* Certifications Grid */
+    .cert-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 20px;
+    }
+    .cert-card {
+      background: #fff;
+      border: 1px solid #eee;
+      border-radius: 5px;
+      padding: 20px;
+      text-align: center;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    /* Facts Section */
+    .facts-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      justify-content: center;
+      text-align: center;
+    }
+    .fact-box {
+      background: #fff;
+      border-radius: 5px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      padding: 20px;
+      min-width: 150px;
+    }
+    .fact-box h3 {
+      font-size: 2rem;
+      margin-bottom: 0.5rem;
+    }
+
+    /* Contact Section */
+    #contact form {
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    /* Footer */
+    footer {
+      background: #f8f9fa;
+      padding: 1rem 0;
+      text-align: center;
+      margin-top: 2rem;
+    }
   </style>
 </head>
 <body>
 
-  <!-- Navigation -->
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="#">Vinit</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" >
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-     <ul class="navbar-nav ml-auto">
-       <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
-       <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
-       <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
-       <li class="nav-item"><a class="nav-link" href="Vinit_Resume_.pdf" target="_blank">Resume</a></li>
-     </ul>
-    </div>
-  </nav>
+  <!-- Sidebar with Icons -->
+  <div class="side-nav">
+    <ul>
+      <li><a href="#hero"><i class="fas fa-home"></i></a></li>
+      <li><a href="#about"><i class="fas fa-user"></i></a></li>
+      <li><a href="#skills"><i class="fas fa-chart-bar"></i></a></li>
+      <li><a href="#resume"><i class="fas fa-file-alt"></i></a></li>
+      <li><a href="#project-work"><i class="fas fa-briefcase"></i></a></li>
+      <li><a href="#certifications"><i class="fas fa-certificate"></i></a></li>
+      <li><a href="#facts"><i class="fas fa-chart-line"></i></a></li>
+      <li><a href="#contact"><i class="fas fa-envelope"></i></a></li>
+    </ul>
+  </div>
 
-  <!-- Header -->
-  <header class="jumbotron text-center">
-    <div class="container">
-      <h1 class="display-4">Hi, I'm Vinit Vasant Bhanushali</h1>
-      <p class="lead">Data Analyst, Research Assistant & Technology Enthusiast</p>
+  <!-- Hero / Landing Section -->
+  <section id="hero">
+    <div class="hero-content">
+      <h1>Vinit Bhanushali</h1>
+      <p>I’m a Data Analyst & Research Assistant</p>
     </div>
-  </header>
-
-  <!-- About Section -->
-  <section id="about" class="container">
-    <h2>About Me</h2>
-    <p>I’m a dedicated Data Analyst and Research Assistant currently at Rutgers University. With a Master’s in Information Technology and Analytics from Rutgers and a Bachelor’s in IT from the University of Mumbai, I leverage data analytics, machine learning, and interactive visualizations to drive insights and improve decision-making.</p>
   </section>
 
-  <!-- Projects Section -->
-  <section id="projects" class="container">
-    <h2>Projects</h2>
-    <div class="row">
-      <!-- Project Card 1 -->
-      <div class="col-md-6">
-        <div class="card">
-           <div class="card-body">
-             <h5 class="card-title">Fitbit Comments Sentiment Analysis</h5>
-             <p class="card-text">Processed 900+ customer reviews using NLP to achieve 85% sentiment classification accuracy, uncovering insights for product enhancement.</p>
-             <a href="#" class="btn btn-primary">View Project</a>
-           </div>
-         </div>
+  <!-- About Section -->
+  <section id="about">
+    <div class="container">
+      <h2 class="section-title">About Me</h2>
+      <div class="about-wrapper">
+        <!-- Replace with your own image -->
+        <img src="images/profile.jpg" alt="Vinit Bhanushali" />
+        <div class="about-info">
+          <p>
+            I’m a dedicated Data Analyst and Research Assistant at Rutgers University. 
+            I’m deeply passionate about harnessing data to uncover actionable insights 
+            and drive business success. My academic and professional journey has solidified 
+            my foundation in Data Science, Machine Learning, Statistical Analysis, and 
+            advanced analytics techniques.
+          </p>
+          <p>
+            I’m proficient in Python, R, SQL, and skilled in tools like Tableau, Looker, and Power BI. 
+            I also navigate through big data technologies such as Hadoop, Spark, Snowflake, 
+            and cloud platforms like AWS, Google Cloud, and Databricks to derive insights 
+            from large-scale data.
+          </p>
+          <p>
+            Eager to continue my career in Data Analytics and Data Engineering, I aim to apply my 
+            competencies to solve real-world problems and create business impact.
+          </p>
+        </div>
       </div>
-      <!-- Project Card 2 -->
-      <div class="col-md-6">
-        <div class="card">
-           <div class="card-body">
-             <h5 class="card-title">FIFA Player Position Prediction</h5>
-             <p class="card-text">Analyzed 18,000+ player statistics to predict player positions and ratings using machine learning models with high accuracy.</p>
-             <a href="#" class="btn btn-primary">View Project</a>
-           </div>
-         </div>
+    </div>
+  </section>
+
+  <!-- Technical Skills Section -->
+  <section id="skills">
+    <div class="container">
+      <h2 class="section-title">Technical Skills</h2>
+      <div class="skill-title">PROGRAMMING (Python, R, SQL, C/C++)</div>
+      <div class="progress">
+        <div class="progress-bar bg-success" role="progressbar" style="width: 90%" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100">
+          90%
+        </div>
       </div>
-      <!-- Add additional project cards as needed -->
+      <div class="skill-title">MACHINE LEARNING (TensorFlow, PyTorch, scikit, NumPy, Pandas)</div>
+      <div class="progress">
+        <div class="progress-bar bg-info" role="progressbar" style="width: 80%" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100">
+          80%
+        </div>
+      </div>
+      <div class="skill-title">DATABASES (MySQL, PostgreSQL, OracleDB, MSSQL)</div>
+      <div class="progress">
+        <div class="progress-bar bg-warning" role="progressbar" style="width: 90%" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100">
+          90%
+        </div>
+      </div>
+      <div class="skill-title">CLOUD & BIG DATA (AWS, Apache Kafka, GCP)</div>
+      <div class="progress">
+        <div class="progress-bar bg-danger" role="progressbar" style="width: 75%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">
+          75%
+        </div>
+      </div>
+      <div class="skill-title">DATA VISUALIZATION (Tableau, Power BI, Excel)</div>
+      <div class="progress">
+        <div class="progress-bar bg-success" role="progressbar" style="width: 85%" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100">
+          85%
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Resume Section -->
+  <section id="resume">
+    <div class="container">
+      <h2 class="section-title">Resume</h2>
+      <div class="row">
+        <!-- Left Column: Summary & Education -->
+        <div class="col-md-6">
+          <h4>Summary</h4>
+          <p>
+            Highly driven Data Analyst and Research Assistant with experience
+            in data analytics, machine learning, and business intelligence. 
+            Skilled at extracting actionable insights from large datasets to 
+            enhance decision-making and drive business growth.
+          </p>
+          <h4>Education</h4>
+          <p>
+            <strong>Rutgers, The State University of New Jersey</strong><br/>
+            Master of Science – Information Technology and Analytics<br/>
+            <em>Aug 2023 – Dec 2024</em>
+          </p>
+          <p>
+            <strong>University of Mumbai</strong><br/>
+            Bachelor of Engineering - Information Technology<br/>
+            <em>Jun 2017 – Jun 2021</em>
+          </p>
+        </div>
+
+        <!-- Right Column: Experience -->
+        <div class="col-md-6">
+          <h4>Professional Experience</h4>
+          <h5>Research Assistant | Rutgers University</h5>
+          <p><em>Jan 2024 – Present</em></p>
+          <ul>
+            <li>Conducted research on large language models (LLMs), optimizing fine-tuning techniques.</li>
+            <li>Enhanced ROI estimation using Bayesian methodologies, increasing predictive accuracy by 15%.</li>
+            <li>Developed interactive dashboards using Tableau and Power BI for data-driven insights.</li>
+          </ul>
+
+          <h5>Data Analyst | Merkle, Inc</h5>
+          <p><em>Nov 2021 – Jun 2023</em></p>
+          <ul>
+            <li>Led client engagements, analyzing business problems and delivering actionable insights.</li>
+            <li>Developed interactive dashboards and automated data updates through SQL integration.</li>
+            <li>Created predictive models for sales forecasting with 85% accuracy.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Project Work Section -->
+  <section id="project-work">
+    <div class="container">
+      <h2 class="section-title">Project Work</h2>
+      <div class="row">
+        <!-- Project Card 1 -->
+        <div class="col-md-4">
+          <div class="project-card">
+            <h5>Fitbit Comments Sentiment Analysis</h5>
+            <p>Processed 900+ customer reviews using NLP to achieve 85% sentiment classification accuracy.</p>
+            <a href="#" class="btn btn-primary">View Project</a>
+          </div>
+        </div>
+        <!-- Project Card 2 -->
+        <div class="col-md-4">
+          <div class="project-card">
+            <h5>FIFA Player Position Prediction</h5>
+            <p>Analyzed 18,000+ player stats to predict positions and ratings with high accuracy.</p>
+            <a href="#" class="btn btn-primary">View Project</a>
+          </div>
+        </div>
+        <!-- Add more project cards as needed -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Online Courses & Certifications Section -->
+  <section id="certifications">
+    <div class="container">
+      <h2 class="section-title">Online Courses & Certifications</h2>
+      <div class="cert-grid">
+        <!-- Certification Card 1 -->
+        <div class="cert-card">
+          <h5>Tableau 2022 A-Z</h5>
+          <p>Udemy, 2022</p>
+        </div>
+        <!-- Certification Card 2 -->
+        <div class="cert-card">
+          <h5>Google Data Studio/Looker Studio</h5>
+          <p>Udemy, 2023</p>
+        </div>
+        <!-- Add more cert cards as needed -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Facts Section -->
+  <section id="facts">
+    <div class="container">
+      <h2 class="section-title">Facts</h2>
+      <div class="facts-container">
+        <div class="fact-box">
+          <h3 class="counter" data-target="95">0</h3>
+          <p>Projects / GIT OSS PRs</p>
+        </div>
+        <div class="fact-box">
+          <h3 class="counter" data-target="165">0</h3>
+          <p>GRE Quant 165 / 170</p>
+        </div>
+        <div class="fact-box">
+          <h3 class="counter" data-target="2">0</h3>
+          <p>Years of Experience</p>
+        </div>
+        <div class="fact-box">
+          <h3 class="counter" data-target="365">0</h3>
+          <p>Hours of Volunteering</p>
+        </div>
+      </div>
     </div>
   </section>
 
   <!-- Contact Section -->
-  <section id="contact" class="container">
-    <h2>Contact</h2>
-    <p>Email: <a href="mailto:vinitbhanushali99@gmail.com">vinitbhanushali99@gmail.com</a></p>
-    <p>LinkedIn: <a href="https://www.linkedin.com/in/vinit-bhanushali-0760851b5">Vinit's LinkedIn</a></p>
-    <p>GitHub: <a href="https://github.com/Vinit2212">Vinit's GitHub</a></p>
+  <section id="contact">
+    <div class="container">
+      <h2 class="section-title">Contact</h2>
+      <form>
+        <div class="form-group">
+          <label for="name">Your Name</label>
+          <input id="name" class="form-control" type="text" />
+        </div>
+        <div class="form-group">
+          <label for="email">Your Email</label>
+          <input id="email" class="form-control" type="email" />
+        </div>
+        <div class="form-group">
+          <label for="subject">Subject</label>
+          <input id="subject" class="form-control" type="text" />
+        </div>
+        <div class="form-group">
+          <label for="message">Message</label>
+          <textarea id="message" class="form-control" rows="5"></textarea>
+        </div>
+        <button class="btn btn-primary" type="submit">Send Message</button>
+      </form>
+    </div>
   </section>
 
   <!-- Footer -->
-  <footer class="text-center">
+  <footer>
     <div class="container">
-      <p>&copy; 2025 Vinit Vasant Bhanushali. All rights reserved.</p>
+      <p>&copy; 2025 Vinit Bhanushali. All rights reserved.</p>
     </div>
   </footer>
 
-  <!-- Scripts -->
+  <!-- jQuery, Popper, Bootstrap JS -->
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  
+  <!-- Optional: Simple Counter Animation -->
+  <script>
+    // Animate the counters in the "Facts" section
+    const counters = document.querySelectorAll('.counter');
+    const speed = 200; // lower = faster
+    
+    const animateCount = (counter) => {
+      const target = +counter.getAttribute('data-target');
+      const count = +counter.innerText;
+      const increment = target / speed;
+      if (count < target) {
+        counter.innerText = Math.ceil(count + increment);
+        setTimeout(() => animateCount(counter), 30);
+      } else {
+        counter.innerText = target;
+      }
+    };
+
+    counters.forEach(counter => {
+      animateCount(counter);
+    });
+  </script>
 </body>
 </html>
-
