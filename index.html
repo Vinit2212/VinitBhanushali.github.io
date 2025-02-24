@@ -1,486 +1,1332 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Vinit Bhanushali Portfolio</title>
-  
-  <!-- Bootstrap CSS -->
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-V84MDN23S8"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-V84MDN23S8');
+  </script>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+
+  <title>Vinit Bhanushali Profile</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="assets/img/Vinit_logo.png" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
   <link
-    rel="stylesheet"
-    href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
-  />
-  <!-- Font Awesome for Icons -->
-  <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
-  />
-  
-  <style>
-    /* Global resets & fonts */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-    body {
-      font-family: Arial, sans-serif;
-      color: #333;
-      scroll-behavior: smooth;
-    }
-    
-    /* Sidebar */
-    .side-nav {
-      position: fixed;
-      left: 20px;
-      top: 50%;
-      transform: translateY(-50%);
-      z-index: 999;
-    }
-    .side-nav ul {
-      list-style: none;
-    }
-    .side-nav ul li {
-      margin: 15px 0;
-    }
-    .side-nav ul li a {
-      width: 40px;
-      height: 40px;
-      display: block;
-      background-color: #fff;
-      color: #333;
-      border-radius: 50%;
-      text-align: center;
-      line-height: 40px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-      transition: background 0.3s, color 0.3s;
-    }
-    .side-nav ul li a:hover {
-      background-color: #007bff;
-      color: #fff;
-    }
+    href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+    rel="stylesheet">
 
-    /* Hero / Landing Section */
-    #hero {
-      height: 100vh;
-      background: url("images/hero-bg.jpg") center center/cover no-repeat;
-      position: relative;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      color: #fff;
-    }
-    #hero::before {
-      content: "";
-      position: absolute;
-      top: 0; left: 0; right: 0; bottom: 0;
-      background: rgba(0,0,0,0.5); /* Overlay */
-    }
-    .hero-content {
-      position: relative;
-      z-index: 1;
-    }
-    .hero-content h1 {
-      font-size: 3rem;
-      margin-bottom: 1rem;
-    }
-    .hero-content p {
-      font-size: 1.2rem;
-    }
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
 
-    /* Section Titles */
-    .section-title {
-      text-align: center;
-      margin-bottom: 2rem;
-      text-transform: uppercase;
-      font-weight: 700;
-      letter-spacing: 1px;
-    }
-    section {
-      padding: 60px 0;
-    }
+  <!-- Template Main CSS File -->
+  <link href="assets/css/style.css" rel="stylesheet">
 
-    /* About Section */
-    #about .container {
-      max-width: 900px;
-    }
-    #about .about-wrapper {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 2rem;
-      align-items: center;
-    }
-    #about .about-wrapper img {
-      max-width: 300px;
-      border-radius: 5px;
-      object-fit: cover;
-    }
-    #about .about-info {
-      flex: 1;
-    }
-
-    /* Technical Skills with progress bars */
-    .skill-title {
-      font-weight: 600;
-      margin-bottom: 0.5rem;
-    }
-    .progress {
-      height: 20px;
-      background-color: #e9ecef;
-      margin-bottom: 1.5rem;
-    }
-    .progress-bar {
-      font-size: 0.8rem;
-      line-height: 20px;
-    }
-
-    /* Resume Section */
-    #resume .row > div {
-      margin-bottom: 2rem;
-    }
-    #resume h5 {
-      margin-top: 1rem;
-      font-weight: 600;
-    }
-
-    /* Project Work Cards */
-    .project-card {
-      background: #fff;
-      border: 1px solid #eee;
-      border-radius: 5px;
-      padding: 20px;
-      margin-bottom: 30px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-      transition: transform 0.2s ease;
-    }
-    .project-card:hover {
-      transform: translateY(-5px);
-    }
-
-    /* Certifications Grid */
-    .cert-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-      gap: 20px;
-    }
-    .cert-card {
-      background: #fff;
-      border: 1px solid #eee;
-      border-radius: 5px;
-      padding: 20px;
-      text-align: center;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    }
-
-    /* Facts Section */
-    .facts-container {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 2rem;
-      justify-content: center;
-      text-align: center;
-    }
-    .fact-box {
-      background: #fff;
-      border-radius: 5px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-      padding: 20px;
-      min-width: 150px;
-    }
-    .fact-box h3 {
-      font-size: 2rem;
-      margin-bottom: 0.5rem;
-    }
-
-    /* Contact Section */
-    #contact form {
-      max-width: 600px;
-      margin: 0 auto;
-    }
-
-    /* Footer */
-    footer {
-      background: #f8f9fa;
-      padding: 1rem 0;
-      text-align: center;
-      margin-top: 2rem;
-    }
-  </style>
+  <!-- =======================================================
+  * Template Name: MyResume
+  * Updated: Jan 09 2024 with Bootstrap v5.3.2
+  * Template URL: https://bootstrapmade.com/free-html-bootstrap-template-my-resume/
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
 </head>
+
+
+
+
+
+
+
 <body>
 
-  <!-- Sidebar with Icons -->
-  <div class="side-nav">
-    <ul>
-      <li><a href="#hero"><i class="fas fa-home"></i></a></li>
-      <li><a href="#about"><i class="fas fa-user"></i></a></li>
-      <li><a href="#skills"><i class="fas fa-chart-bar"></i></a></li>
-      <li><a href="#resume"><i class="fas fa-file-alt"></i></a></li>
-      <li><a href="#project-work"><i class="fas fa-briefcase"></i></a></li>
-      <li><a href="#certifications"><i class="fas fa-certificate"></i></a></li>
-      <li><a href="#facts"><i class="fas fa-chart-line"></i></a></li>
-      <li><a href="#contact"><i class="fas fa-envelope"></i></a></li>
-    </ul>
-  </div>
+  <!-- ======= Mobile nav toggle button ======= -->
+  <!-- <button type="button" class="mobile-nav-toggle d-xl-none"><i class="bi bi-list mobile-nav-toggle"></i></button> -->
+  <i class="bi bi-list mobile-nav-toggle d-lg-none"></i>
 
-  <!-- Hero / Landing Section -->
-  <section id="hero">
-    <div class="hero-content">
+
+
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="d-flex flex-column justify-content-center">
+
+    <nav id="navbar" class="navbar nav-menu">
+      <ul>
+        <li><a href="#hero" class="nav-link scrollto active"><i class="bx bx-home"></i> <span>Home</span></a></li>
+        <li><a href="#about" class="nav-link scrollto"><i class="bx bx-user"></i> <span>About</span></a></li>
+        <li><a href="#resume" class="nav-link scrollto"><i class="bx bx-file-blank"></i> <span>Resume</span></a></li>
+        <li><a href="#projects" class="nav-link scrollto"><i class="bx bx-server"></i> <span>Projects</span></a></li>
+        <!-- <li><a href="#dashboards" class="nav-link scrollto"><i
+              class="bx bx-book-content"></i><span>Dashboards</span></a> -->
+        </li>
+        <li><a href="#certificates" class="nav-link scrollto"><i class="bx bx-layer"></i><span>Certificates</span></a>
+        </li>
+        <li><a href="#contact" class="nav-link scrollto"><i class="bx bx-envelope"></i> <span>Contact</span></a></li>
+      </ul>
+    </nav><!-- .nav-menu -->
+
+  </header><!-- End Header -->
+
+
+
+
+
+  <!-- ======= Home Page Section ======= -->
+  <section id="hero" class="d-flex flex-column justify-content-center">
+    <div class="container" data-aos="zoom-in" data-aos-delay="100">
       <h1>Vinit Bhanushali</h1>
-      <p>I’m a Data Analyst & Research Assistant</p>
-    </div>
-  </section>
+      <p>I'm a <span class="typed" data-typed-items="Data Engineer, Data Scientist, Data Analyst"></span></p>
+      <div class="social-links">
+        <a href="https://www.linkedin.com/in/vinit-bhanushali-0760851b5/" class="linkedin" target="_blank"><i
+            class="bx bxl-linkedin"></i></a>
+        <a href="https://github.com/Vinit2212" class="linkedin" target="_blank"><i
+            class="bx bxl-github"></i></a>
+        <a href="https://www.hackerrank.com/profile/vinitbhanushali1" class="HackerRank" target="_blank"> <svg
+            xmlns="http://www.w3.org/2000/svg" height="20" width="20"
+            viewBox="0 0 512 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
+            <path
+              d="M477.5 128C463 103.1 285.1 0 256.2 0S49.3 102.8 34.8 128s-14.5 230.8 0 256 192.4 128 221.3 128S463 409.1 477.5 384s14.5-231 0-256zM316.1 414.2c-4 0-40.9-35.8-38-38.7 .9-.9 6.3-1.5 17.6-1.8 0-26.2 .6-68.6 .9-86.3 0-2-.4-3.4-.4-5.9h-79.9c0 7.1-.5 36.2 1.4 72.9 .2 4.5-1.6 6-5.7 5.9-10.1 0-20.3-.1-30.4-.1-4.1 0-5.9-1.5-5.7-6.1 .9-33.4 3-84-.2-212.7v-3.2c-9.7-.4-16.4-1-17.3-1.8-2.9-2.9 34.5-38.7 38.5-38.7s41.2 35.8 38.3 38.7c-.9 .9-7.9 1.5-16.8 1.8v3.2c-2.4 25.8-2 79.6-2.6 105.4h80.3c0-4.6 .4-34.7-1.2-83.6-.1-3.4 1-5.2 4.2-5.2 11.1-.1 22.2-.1 33.2-.1 3.5 0 4.6 1.7 4.5 5.4C333 354.6 336 341.3 336 373.7c8.9 .4 16.8 1 17.7 1.8 2.9 2.9-33.6 38.7-37.6 38.7z" />
+          </svg></a>
 
-  <!-- About Section -->
-  <section id="about">
-    <div class="container">
-      <h2 class="section-title">About Me</h2>
-      <div class="about-wrapper">
-        <!-- Replace with your own image -->
-        <img src="images/profile.jpg" alt="Vinit Bhanushali" />
-        <div class="about-info">
-          <p>
-            I’m a dedicated Data Analyst and Research Assistant at Rutgers University. 
-            I’m deeply passionate about harnessing data to uncover actionable insights 
-            and drive business success. My academic and professional journey has solidified 
-            my foundation in Data Science, Machine Learning, Statistical Analysis, and 
-            advanced analytics techniques.
-          </p>
-          <p>
-            I’m proficient in Python, R, SQL, and skilled in tools like Tableau, Looker, and Power BI. 
-            I also navigate through big data technologies such as Hadoop, Spark, Snowflake, 
-            and cloud platforms like AWS, Google Cloud, and Databricks to derive insights 
-            from large-scale data.
-          </p>
-          <p>
-            Eager to continue my career in Data Analytics and Data Engineering, I aim to apply my 
-            competencies to solve real-world problems and create business impact.
-          </p>
-        </div>
       </div>
     </div>
-  </section>
+  </section><!-- End Hero -->
 
-  <!-- Technical Skills Section -->
-  <section id="skills">
-    <div class="container">
-      <h2 class="section-title">Technical Skills</h2>
-      <div class="skill-title">PROGRAMMING (Python, R, SQL, C/C++)</div>
-      <div class="progress">
-        <div class="progress-bar bg-success" role="progressbar" style="width: 90%" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100">
-          90%
-        </div>
-      </div>
-      <div class="skill-title">MACHINE LEARNING (TensorFlow, PyTorch, scikit, NumPy, Pandas)</div>
-      <div class="progress">
-        <div class="progress-bar bg-info" role="progressbar" style="width: 80%" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100">
-          80%
-        </div>
-      </div>
-      <div class="skill-title">DATABASES (MySQL, PostgreSQL, OracleDB, MSSQL)</div>
-      <div class="progress">
-        <div class="progress-bar bg-warning" role="progressbar" style="width: 90%" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100">
-          90%
-        </div>
-      </div>
-      <div class="skill-title">CLOUD & BIG DATA (AWS, Apache Kafka, GCP)</div>
-      <div class="progress">
-        <div class="progress-bar bg-danger" role="progressbar" style="width: 75%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">
-          75%
-        </div>
-      </div>
-      <div class="skill-title">DATA VISUALIZATION (Tableau, Power BI, Excel)</div>
-      <div class="progress">
-        <div class="progress-bar bg-success" role="progressbar" style="width: 85%" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100">
-          85%
-        </div>
-      </div>
-    </div>
-  </section>
 
-  <!-- Resume Section -->
-  <section id="resume">
-    <div class="container">
-      <h2 class="section-title">Resume</h2>
-      <div class="row">
-        <!-- Left Column: Summary & Education -->
-        <div class="col-md-6">
-          <h4>Summary</h4>
-          <p>
-            Highly driven Data Analyst and Research Assistant with experience
-            in data analytics, machine learning, and business intelligence. 
-            Skilled at extracting actionable insights from large datasets to 
-            enhance decision-making and drive business growth.
-          </p>
-          <h4>Education</h4>
-          <p>
-            <strong>Rutgers, The State University of New Jersey</strong><br/>
-            Master of Science – Information Technology and Analytics<br/>
-            <em>Aug 2023 – Dec 2024</em>
-          </p>
-          <p>
-            <strong>University of Mumbai</strong><br/>
-            Bachelor of Engineering - Information Technology<br/>
-            <em>Jun 2017 – Jun 2021</em>
-          </p>
+
+
+ 
+
+  <main id="main">
+
+    <!-- ======= About Section ======= -->
+    <section id="about" class="about">
+      <div class="container" data-aos="fade-up">
+
+        <div class="section-title">
+          <h2>About Me</h2>
+          <!-- <p>
+          </p> -->
         </div>
 
-        <!-- Right Column: Experience -->
-        <div class="col-md-6">
-          <h4>Professional Experience</h4>
-          <h5>Research Assistant | Rutgers University</h5>
-          <p><em>Jan 2024 – Present</em></p>
-          <ul>
-            <li>Conducted research on large language models (LLMs), optimizing fine-tuning techniques.</li>
-            <li>Enhanced ROI estimation using Bayesian methodologies, increasing predictive accuracy by 15%.</li>
-            <li>Developed interactive dashboards using Tableau and Power BI for data-driven insights.</li>
-          </ul>
+        
 
-          <h5>Data Analyst | Merkle, Inc</h5>
-          <p><em>Nov 2021 – Jun 2023</em></p>
-          <ul>
-            <li>Led client engagements, analyzing business problems and delivering actionable insights.</li>
-            <li>Developed interactive dashboards and automated data updates through SQL integration.</li>
-            <li>Created predictive models for sales forecasting with 85% accuracy.</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </section>
+            <div class="row">
+              <div class="col-lg-4">
+                <img src="assets/img/Vinit.jpg" class="img-fluid" alt="Vinit Bhanushali">  <!-- Add image -->
+              </div>
+              <div class="col-lg-8 pt-4 pt-lg-0 content">
+                <p class="fst-italic">
+                  Hello,
+                  I'm Vinit Vasant Bhanushali, a Data Analyst and Research Assistant at Rutgers University. I am passionate about harnessing data to derive actionable insights and drive business success.
+                </p>
+                <p class="fst-italic">
+                  My academic journey includes a Master of Science in Information Technology and Analytics from Rutgers University and a Bachelor of Engineering in Information Technology from the University of Mumbai, which have solidified my expertise in Data Science, Machine Learning, Statistical Analysis, and advanced analytics.
+                </p>
+                <p class="fst-italic">
+                  I am proficient in Python, R, SQL, and skilled with BI tools such as Tableau and Power BI. I have hands-on experience with big data technologies, cloud platforms, and have built interactive dashboards and predictive models to support data-driven decision making.
+                </p>
+                <p class="fst-italic">
+                  Eager to advance my career in Data Analytics, Data Engineering, and related fields, I am committed to applying my comprehensive skill set and innovative approach to solving real-world challenges and making a meaningful impact as part of a dynamic team.
+                </p>
+            
+            
+            <div class="row">
+              <div class="col-lg-6">
+                <ul>
+                  <li><i class="bi bi-chevron-right"></i> <strong>Website:</strong>
+                    <a href="https://vinit2212.github.io/VinitBhanushali.github.io/"><span>https://vinit2212.github.io</span></a>
+                  </li>
+                  <li><i class="bi bi-chevron-right"></i> <strong>Phone:</strong> <span>+1-848-437-1456</span></li>
+                  <li><i class="bi bi-chevron-right"></i> <strong>City:</strong> <span>New Brunswick, NJ</span></li>
+                </ul>
+              </div>
+              <div class="col-lg-6">
+                <ul>
+                  <li><i class="bi bi-chevron-right"></i> <strong>Degree:</strong> <span>MS,
+                      Information Technology and Analytics</span></li>
+                  <li><i class="bi bi-chevron-right"></i> <strong>Primary Email:</strong>
+                    <span>vinitbhanushali99@gmail.com</span>
+                  </li>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <p>
 
-  <!-- Project Work Section -->
-  <section id="project-work">
-    <div class="container">
-      <h2 class="section-title">Project Work</h2>
-      <div class="row">
-        <!-- Project Card 1 -->
-        <div class="col-md-4">
-          <div class="project-card">
-            <h5>Fitbit Comments Sentiment Analysis</h5>
-            <p>Processed 900+ customer reviews using NLP to achieve 85% sentiment classification accuracy.</p>
-            <a href="#" class="btn btn-primary">View Project</a>
+            </p>
           </div>
         </div>
-        <!-- Project Card 2 -->
-        <div class="col-md-4">
-          <div class="project-card">
-            <h5>FIFA Player Position Prediction</h5>
-            <p>Analyzed 18,000+ player stats to predict positions and ratings with high accuracy.</p>
-            <a href="#" class="btn btn-primary">View Project</a>
+
+      </div>
+    </section>
+    <!-- End About Section -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- ======= Skills Section ======= -->
+    <section id="skills" class="skills section-bg">
+      <div class="container" data-aos="fade-up">
+
+        <div class="section-title">
+          <h2>Technical Skills</h2>
+          <p></p>
+        </div>
+
+        <div class="row skills-content">
+
+          <div class="col-lg-6">
+
+            <div class="progress">
+              <span class="skill">Programming (Python, R, SQL, Bash)<i class="val">100%</i></span>
+              <div class="progress-bar-wrap">
+                <div class="progress-bar" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">
+                </div>
+              </div>
+            </div>
+
+            <div class="progress">
+              <span class="skill">Database (MySQL, Hive-QL, Spark-SQL, PostgreSQL) <i class="val">90%</i></span>
+              <div class="progress-bar-wrap">
+                <div class="progress-bar" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100">
+                </div>
+              </div>
+            </div>
+
+            <div class="progress">
+              <span class="skill">Data Analysis (Tableau, Looker, Plotly, Excel) <i class="val">90%</i></span>
+              <div class="progress-bar-wrap">
+                <div class="progress-bar" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100">
+                </div>
+              </div>
+            </div>
+
           </div>
+
+          <div class="col-lg-6">
+
+            <div class="progress">
+              <span class="skill">Machine Learning (Tensorflow, Keras, PyTorch, SciKit, NumPy, Pandas) <i
+                  class="val">80%</i></span>
+              <div class="progress-bar-wrap">
+                <div class="progress-bar" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100">
+                </div>
+              </div>
+            </div>
+
+            <div class="progress">
+              <span class="skill">Bigdata Technology (Hadoop, Spark, Kafka, Hive, Aiflow) <i class="val">75%</i></span>
+              <div class="progress-bar-wrap">
+                <div class="progress-bar" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">
+                </div>
+              </div>
+            </div>
+
+            <div class="progress">
+              <span class="skill">Cloud Platforms (AWS, Google Cloud, Databricks, Snowflake) <i
+                  class="val">70%</i></span>
+              <div class="progress-bar-wrap">
+                <div class="progress-bar" role="progressbar" aria-valuenow="55" aria-valuemin="0" aria-valuemax="100">
+                </div>
+              </div>
+            </div>
+          </div>
+
         </div>
-        <!-- Add more project cards as needed -->
+
       </div>
-    </div>
-  </section>
 
-  <!-- Online Courses & Certifications Section -->
-  <section id="certifications">
-    <div class="container">
-      <h2 class="section-title">Online Courses & Certifications</h2>
-      <div class="cert-grid">
-        <!-- Certification Card 1 -->
-        <div class="cert-card">
-          <h5>Tableau 2022 A-Z</h5>
-          <p>Udemy, 2022</p>
-        </div>
-        <!-- Certification Card 2 -->
-        <div class="cert-card">
-          <h5>Google Data Studio/Looker Studio</h5>
-          <p>Udemy, 2023</p>
-        </div>
-        <!-- Add more cert cards as needed -->
       </div>
-    </div>
-  </section>
+    </section><!-- End Skills Section -->
 
-  <!--
-<!-- Facts Section  -->
-<section id="facts">
-    <div class="container">
-      <h2 class="section-title">Facts</h2>
-      <div class="facts-container">
-        <div class="fact-box">
-          <h3 class="counter" data-target="95">0</h3>
-          <p>Projects / GIT OSS PRs</p>
-        </div>
-        <div class="fact-box">
-          <h3 class="counter" data-target="165">0</h3>
-          <p>GRE Quant 165 / 170</p>
-        </div>
-        <div class="fact-box">
-          <h3 class="counter" data-target="2">0</h3>
-          <p>Years of Experience</p>
-        </div>
-        <div class="fact-box">
-          <h3 class="counter" data-target="365">0</h3>
-          <p>Hours of Volunteering</p>
-        </div>
-      </div>
-    </div>
-  </section>
-  -->
-  
-  <!-- Contact Section -->
-  <section id="contact">
-    <div class="container">
-      <h2 class="section-title">Contact</h2>
-      <form>
-        <div class="form-group">
-          <label for="name">Your Name</label>
-          <input id="name" class="form-control" type="text" />
-        </div>
-        <div class="form-group">
-          <label for="email">Your Email</label>
-          <input id="email" class="form-control" type="email" />
-        </div>
-        <div class="form-group">
-          <label for="subject">Subject</label>
-          <input id="subject" class="form-control" type="text" />
-        </div>
-        <div class="form-group">
-          <label for="message">Message</label>
-          <textarea id="message" class="form-control" rows="5"></textarea>
-        </div>
-        <button class="btn btn-primary" type="submit">Send Message</button>
-      </form>
-    </div>
-  </section>
 
-  <!-- Footer -->
-  <footer>
-    <div class="container">
-      <p>&copy; 2025 Vinit Bhanushali. All rights reserved.</p>
-    </div>
-  </footer>
 
-  <!-- jQuery, Popper, Bootstrap JavaScript -->
-  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-  
-  <!-- Optional: Simple Counter Animation -->
-  <script>
-    // Animate the counters in the "Facts" section
-    const counters = document.querySelectorAll('.counter');
-    const speed = 200; // lower = faster
+
+
+    <!-- ======= Resume Section ======= -->
     
-    const animateCount = (counter) => {
-      const target = +counter.getAttribute('data-target');
-      const count = +counter.innerText;
-      const increment = target / speed;
-      if (count < target) {
-        counter.innerText = Math.ceil(count + increment);
-        setTimeout(() => animateCount(counter), 30);
-      } else {
-        counter.innerText = target;
-      }
-    };
+    <section id="resume" class="resume">
+      <div class="container" data-aos="fade-up">
+    
+        <div class="section-title">
+          <h2>Resume</h2>
+          <p></p>
+        </div>
+    
+        <div class="row">
+          <!-- Left Column: Summary & Education -->
+          <div class="col-lg-6">
+            <!-- Summary -->
+            <h3 class="resume-title">Summary</h3>
+            <div class="resume-item pb-0">
+              <h4>VINIT VASANT BHANUSHALI</h4>
+              <ul>
+                <li>New Brunswick, NJ</li>
+                <li>+1 (848)-437-1456</li>
+                <li>vinitbhanushali99@gmail.com</li>
+              </ul>
+            </div>
+    
+            <!-- Education -->
+            <h3 class="resume-title">Education</h3>
+            <div class="resume-item">
+              <h4>Rutgers, The State University of New Jersey, New Brunswick, USA</h4>
+              <h5>Aug 2023 - Dec 2024</h5>
+              <p><em>Master of Science – Information Technology and Analytics</em></p>
+            </div>
+            <div class="resume-item">
+              <h4>University of Mumbai, Mumbai, India</h4>
+              <h5>Jun 2017 - Jun 2021</h5>
+              <p><em>Bachelor of Engineering - Information Technology</em></p>
+            </div>
+            <h3 class="resume-title">Research Projects &amp; Publications</h3>
+            <div class="resume-item">
+              <h4>Fitbit Comments Sentiment Analysis</h4>
+              <h5>Dec 2023</h5>
+              <ul>
+                <li>Processed 900+ customer reviews using Natural Language Processing (NLP) to achieve 85% sentiment classification accuracy.</li>
+                <li>Visualized sentiment trends with Matplotlib and Seaborn, uncovering actionable insights for product enhancement.</li>
+              </ul>
+            </div>
+            <div class="resume-item">
+              <h4>FIFA Player Position Prediction and Rating Analysis</h4>
+              <h5>Sep 2023</h5>
+              <ul>
+                <li>Analyzed 18,000+ player statistics from FIFA datasets, predicting player ratings with 94% accuracy and player positions with 88% accuracy.</li>
+                <li>Identified critical attributes influencing player performance using Random Forest and sequential models with dense layers, dropout, and Adam optimizer.</li>
+              </ul>
+            </div>
+          </div>
+          
+    
+          <!-- Right Column: Professional Experience & Research Projects -->
+          <div class="col-lg-6">
+            <h3 class="resume-title">Professional Experience</h3>
+            <div class="resume-item">
+              <h4>Research Assistant | Rutgers University</h4>
+              <h5>Jan 2024 – Present</h5>
+              <p><em>Data Analyst & Research Assistant</em></p>
+              <ul>
+                <li>Conducted research on large language models (LLMs), optimizing fine-tuning techniques and evaluating model performance to achieve a 20% improvement in text-based application accuracy.</li>
+                <li>Collaborated on enhancing ROI estimation using Bayesian methodologies with Python and R, increasing predictive accuracy by 15%.</li>
+                <li>Designed 10+ interactive dashboards using Tableau and Power BI for stakeholder reporting, enhancing decision-making processes.</li>
+                <li>Assisted in developing course materials and mentoring 40+ students in data analysis and visualization techniques.</li>
+              </ul>
+            </div>
+    
+            <div class="resume-item">
+              <h4>Data Analyst | Merkle, Inc</h4>
+              <h5>Nov 2021 – Jun 2023</h5>
+              <p><em>Data Analyst</em></p>
+              <ul>
+                <li>Led client engagements as the primary point of contact for 5+ clients, analyzing business challenges and delivering actionable insights.</li>
+                <li>Managed the creation and deployment of 20+ surveys in Qualtrics, followed by data cleansing and ETL workflows using Python, R, and SQL, ensuring data consistency.</li>
+                <li>Developed 15+ interactive dashboards using Tableau, Power BI, and Qualtrics to visualize client data and track KPI metrics, boosting operational efficiency by 40%.</li>
+                <li>Created predictive models for sales forecasting using regression analysis, decision trees, and neural networks, achieving 85% accuracy.</li>
+                <li>Delivered comprehensive analytical reports and dashboard presentations, driving a 25% increase in business growth and a 30% boost in client satisfaction.</li>
+              </ul>
+            </div>
+    
+            <div class="resume-item">
+              <h4>Data Analyst - Intern | Atri Technocrat</h4>
+              <h5>Jun 2021 – Nov 2021</h5>
+              <p><em>Data Analyst Intern</em></p>
+              <ul>
+                <li>Conducted in-depth exploratory data analysis (EDA) using Python and Tableau, creating over 20 visualizations to highlight key trends.</li>
+                <li>Managed and optimized SQL databases to enhance data accessibility and streamline data retrieval processes.</li>
+                <li>Implemented rigorous data cleansing procedures across 5+ datasets comprising over 1 million records, reducing missing values and duplicates by 95%.</li>
+                <li>Engineered and deployed over 10 predictive models using machine learning and deep learning algorithms, achieving an average accuracy improvement of 25% and boosting operational efficiency by 20%.</li>
+              </ul>
+            </div>
+    
+            <!-- <h3 class="resume-title">Research Projects &amp; Publications</h3>
+            <div class="resume-item">
+              <h4>Fitbit Comments Sentiment Analysis</h4>
+              <h5>Dec 2023</h5>
+              <ul>
+                <li>Processed 900+ customer reviews using Natural Language Processing (NLP) to achieve 85% sentiment classification accuracy.</li>
+                <li>Visualized sentiment trends with Matplotlib and Seaborn, uncovering actionable insights for product enhancement.</li>
+              </ul>
+            </div>
+            <div class="resume-item">
+              <h4>FIFA Player Position Prediction and Rating Analysis</h4>
+              <h5>Sep 2023</h5>
+              <ul>
+                <li>Analyzed 18,000+ player statistics from FIFA datasets, predicting player ratings with 94% accuracy and player positions with 88% accuracy.</li>
+                <li>Identified critical attributes influencing player performance using Random Forest and sequential models with dense layers, dropout, and Adam optimizer.</li>
+              </ul>
+            </div> -->
+          </div>
+        </div>
+    
+      </div>
+    </section> 
 
-    counters.forEach(counter => {
-      animateCount(counter);
-    });
-  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- ======= Project Work ======= -->
+<section id="projects" class="services">
+  <div class="container" data-aos="fade-up">
+
+    <div class="section-title">
+      <h2>Project Work</h2>
+      <p>
+        Here are a few key projects I developed to apply my learnings in data analytics, machine learning, and data engineering.
+      </p>
+    </div>
+
+    <div class="row">
+
+      <!-- Project 1: World Happiness Report 2024: Data Analysis -->
+      <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4" data-aos="zoom-in" data-aos-delay="100">
+        <div class="icon-box iconbox-yellow">
+          <a href="https://github.com/Vinit2212/World_Happiness_Index" target="_blank">
+            <div class="icon">
+              <svg width="100" height="100" viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg">
+                <path stroke="none" stroke-width="0" fill="#f5f5f5"
+                  d="M300,503.46388370962813C374.79870501325706,506.71871716319447,464.8034551963731,527.1746412648533,510.4981551193396,467.86667711651364C555.9287308511215,408.9015244558933,512.6030010748507,327.5744911775523,490.211057578863,256.5855673507754C471.097692560561,195.9906835881958,447.69079081568157,138.11976852964426,395.19560036434837,102.3242989838813C329.3053358748298,57.3949838291264,248.02791733380457,8.279543830951368,175.87071277845988,42.242879143198664C103.41431057327972,76.34704239035025,93.79494320519305,170.9812938413882,81.28167332365135,250.07896920659033C70.17666984294237,320.27484674793965,64.84698225790005,396.69656628748305,111.28512138212992,450.4950937839243C156.20124167950087,502.5303643271138,231.32542653798444,500.4755392045468,300,503.46388370962813">
+                </path>
+              </svg>
+              <i class="bi bi-bar-chart-line"></i>
+            </div>
+          </a>
+          <h4><a href="https://github.com/Vinit2212/World_Happiness_Index" target="_blank">World Happiness Report 2024: Data Analysis</a></h4>
+          <p align="justify">
+            This project provides a comprehensive analysis of the World Happiness Report 2024. It examines global happiness trends, identifies key drivers, and uses regression modeling for predictive insights. The analysis reveals that Europe exhibits the highest median happiness scores, while Africa faces systemic challenges. A detailed regression model using factors such as GDP per capita, Social Support, and Healthy Life Expectancy achieved an R² of 0.77 with MAE of 0.40 and RMSE of 0.50. Visualizations include box-and-whisker plots, scatterplots, and heatmaps highlighting the top 10 happiest countries.
+          </p>
+        </div>
+      </div>
+
+      <!-- Project 2: Fitbit Comments Sentiment Analysis using NLP -->
+      <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4" data-aos="zoom-in" data-aos-delay="100">
+        <div class="icon-box iconbox-blue">
+          <a href="https://github.com/Vinit2212/NLP_Fitbit-reviews" target="_blank">
+            <div class="icon">
+              <svg width="100" height="100" viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg">
+                <path stroke="none" stroke-width="0" fill="#f5f5f5"
+                  d="M300,503.46388370962813C374.79870501325706,506.71871716319447,464.8034551963731,527.1746412648533,510.4981551193396,467.86667711651364C555.9287308511215,408.9015244558933,512.6030010748507,327.5744911775523,490.211057578863,256.5855673507754C471.097692560561,195.9906835881958,447.69079081568157,138.11976852964426,395.19560036434837,102.3242989838813C329.3053358748298,57.3949838291264,248.02791733380457,8.279543830951368,175.87071277845988,42.242879143198664C103.41431057327972,76.34704239035025,93.79494320519305,170.9812938413882,81.28167332365135,250.07896920659033C70.17666984294237,320.27484674793965,64.84698225790005,396.69656628748305,111.28512138212992,450.4950937839243C156.20124167950087,502.5303643271138,231.32542653798444,500.4755392045468,300,503.46388370962813">
+                </path>
+              </svg>
+              <i class="bi bi-chat-dots"></i>
+            </div>
+          </a>
+          <h4><a href="https://github.com/Vinit2212/NLP_Fitbit-reviews" target="_blank">Fitbit Comments Sentiment Analysis using NLP</a></h4>
+          <p align="justify">
+            Leveraging NLP, this project analyzes over 900 customer reviews of Fitbit products. It involves web scraping using Selenium, extensive text preprocessing (cleaning, tokenization, lemmatization), and sentiment classification using TextBlob. Data visualizations (bar and pie charts) reveal trends in user feedback—highlighting both negative issues (like missing features and delayed notifications) and positive aspects such as accurate activity tracking and a user-friendly interface.
+          </p>
+        </div>
+      </div>
+
+      <!-- Project 3: Soccer Match Win Prediction using AML -->
+      <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4" data-aos="zoom-in" data-aos-delay="100">
+        <div class="icon-box iconbox-red">
+          <a href="https://github.com/Vinit2212/AML---Soccer-Match-Win-Prediction" target="_blank">
+            <div class="icon">
+              <svg width="100" height="100" viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg">
+                <path stroke="none" stroke-width="0" fill="#f5f5f5"
+                  d="M300,503.46388370962813C374.79870501325706,506.71871716319447,464.8034551963731,527.1746412648533,510.4981551193396,467.86667711651364C555.9287308511215,408.9015244558933,512.6030010748507,327.5744911775523,490.211057578863,256.5855673507754C471.097692560561,195.9906835881958,447.69079081568157,138.11976852964426,395.19560036434837,102.3242989838813C329.3053358748298,57.3949838291264,248.02791733380457,8.279543830951368,175.87071277845988,42.242879143198664C103.41431057327972,76.34704239035025,93.79494320519305,170.9812938413882,81.28167332365135,250.07896920659033C70.17666984294237,320.27484674793965,64.84698225790005,396.69656628748305,111.28512138212992,450.4950937839243C156.20124167950087,502.5303643271138,231.32542653798444,500.4755392045468,300,503.46388370962813">
+                </path>
+              </svg>
+              <i class="bi bi-trophy"></i>
+            </div>
+          </a>
+          <h4><a href="https://github.com/Vinit2212/AML---Soccer-Match-Win-Prediction" target="_blank">Soccer Match Win Prediction using AML</a></h4>
+          <p align="justify">
+            This project utilizes historical Premier League match data to predict match outcomes using Automated Machine Learning. Key features include categorical encoding of venues and opponents, extraction of time and day features, and rolling averages of match statistics. A RandomForestClassifier was trained on pre-2022 matches and tested on post-2022 data, achieving an accuracy of ~58% and an improved precision of 0.625 after including dynamic performance trends.
+          </p>
+          <p align="right" style="font-style:italic">- Project Analysis using Python & scikit-learn</p>
+        </div>
+      </div>
+
+      <!-- Project 4: From Data To Glory: FIFA Player Analytics -->
+      <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4" data-aos="zoom-in" data-aos-delay="100">
+        <div class="icon-box iconbox-teal">
+          <a href="https://github.com/Vinit2212/From-Data-To-Glory-FIFA-Player-Analytics" target="_blank">
+            <div class="icon">
+              <svg width="100" height="100" viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg">
+                <path stroke="none" stroke-width="0" fill="#f5f5f5"
+                  d="M300,503.46388370962813C374.79870501325706,506.71871716319447,464.8034551963731,527.1746412648533,510.4981551193396,467.86667711651364C555.9287308511215,408.9015244558933,512.6030010748507,327.5744911775523,490.211057578863,256.5855673507754C471.097692560561,195.9906835881958,447.69079081568157,138.11976852964426,395.19560036434837,102.3242989838813C329.3053358748298,57.3949838291264,248.02791733380457,8.279543830951368,175.87071277845988,42.242879143198664C103.41431057327972,76.34704239035025,93.79494320519305,170.9812938413882,81.28167332365135,250.07896920659033C70.17666984294237,320.27484674793965,64.84698225790005,396.69656628748305,111.28512138212992,450.4950937839243C156.20124167950087,502.5303643271138,231.32542653798444,500.4755392045468,300,503.46388370962813">
+                </path>
+              </svg>
+              <i class="bi bi-graph-up"></i>
+            </div>
+          </a>
+          <h4><a href="https://github.com/Vinit2212/From-Data-To-Glory-FIFA-Player-Analytics" target="_blank">From Data To Glory: FIFA Player Analytics</a></h4>
+          <p align="justify">
+            Harnessing neural networks and machine learning, this project predicts player positions and overall ratings in FIFA Ultimate Team. Through rigorous data exploration, feature engineering, and diverse modeling approaches (both regression and classification), the project achieved an R² of 0.98 (with an RMSE of ~1.06) for rating predictions and about 89% accuracy in classifying player positions.
+          </p>
+        </div>
+      </div>
+
+      <!-- Project 5: Hotel Management System -->
+      <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4" data-aos="zoom-in" data-aos-delay="100">
+        <div class="icon-box iconbox-orange">
+          <a href="https://github.com/Vinit2212/HotelManagementSystem/tree/main" target="_blank">
+            <div class="icon">
+              <svg width="100" height="100" viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg">
+                <path stroke="none" stroke-width="0" fill="#f5f5f5"
+                  d="M300,503.46388370962813C374.79870501325706,506.71871716319447,464.8034551963731,527.1746412648533,510.4981551193396,467.86667711651364C555.9287308511215,408.9015244558933,512.6030010748507,327.5744911775523,490.211057578863,256.5855673507754C471.097692560561,195.9906835881958,447.69079081568157,138.11976852964426,395.19560036434837,102.3242989838813C329.3053358748298,57.3949838291264,248.02791733380457,8.279543830951368,175.87071277845988,42.242879143198664C103.41431057327972,76.34704239035025,93.79494320519305,170.9812938413882,81.28167332365135,250.07896920659033C70.17666984294237,320.27484674793965,64.84698225790005,396.69656628748305,111.28512138212992,450.4950937839243C156.20124167950087,502.5303643271138,231.32542653798444,500.4755392045468,300,503.46388370962813">
+                </path>
+              </svg>
+              <i class="bi bi-building"></i>
+            </div>
+          </a>
+          <h4><a href="https://github.com/Vinit2212/HotelManagementSystem/tree/main" target="_blank">Hotel Management System</a></h4>
+          <p align="justify">
+            A centralized hotel management system designed to streamline reservations and daily operations for a chain of hotels. The system maintains customer information, room rates (varying by season), and service details across multiple branches, enabling efficient billing, reservation updates, and cancellations.
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+<!-- End Project Work Section -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- ======= Dashboard Section ======= -->
+    <!-- <section id="dashboard" class="portfolio section-bg">
+      <div class="container" data-aos="fade-up">
+
+        <div class="section-title">
+          <h2>Tableau Dashboards</h2>
+          <p>Here are some of my featured dashbaords.</p>
+        </div>
+
+        <div class="row">
+          <div class="col-lg-12 d-flex justify-content-center" data-aos="fade-up" data-aos-delay="100">
+            <ul id="dashboard-flters">
+              <li data-filter="*" class="filter-active">All</li> -->
+              
+            <!-- </ul>
+          </div>
+        </div>
+
+        <div class="row dashboard-container" data-aos="fade-up" data-aos-delay="200">
+
+          <div class="col-lg-4 col-md-6 portfolio-item">
+            <div class="portfolio-wrap">
+              <img src="assets/img/tableau/custom-purchase.png" class="img-fluid" alt="">
+              <div class="portfolio-info">
+                <h4>Customer Purchase Analysis Dashboard</h4>
+                <p>This dashboard to analyze 12-month customer-sales data in the USA, showcasing sales
+                  metrics, demographic
+                  trends, and geographical demand through diverse chart types, and assessing the impact of discounts on
+                  purchasing
+                  behavior.
+                </p>
+                <div class="portfolio-links">
+                  <a href="assets/img/tableau/custom-purchase.png" data-gallery="portfolioGallery"
+                    class="portfolio-lightbox" title="App 1"><i class="bx bx-plus"></i></a>
+                  <a href="https://public.tableau.com/app/profile/#/viz/CustomerPurchaseAnalysisDashboard_17043987734760/SalesAnalysisDashboard"
+                    class="portfolio-details-lightbox" data-glightbox="type: external" title="Portfolio Details"><i
+                      class="bx bx-link"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 portfolio-item ">
+            <div class="portfolio-wrap">
+              <img src="assets/img/tableau/uk-bank-seg.png" class="img-fluid" alt="">
+              <div class="portfolio-info">
+                <h4>Bank Customer Segmentation Dashboard</h4>
+                <p>This dashboards used for segment bank customers, analyzing a UK-based dummy dataset. Insights
+                  revealed
+                  key demographics
+                  like age, gender, and job classification across regions, guiding recommendations for targeted sales
+                  strategies.</p>
+                <div class="portfolio-links">
+                  <a href="assets/img/tableau/uk-bank-seg.png" data-gallery="portfolioGallery"
+                    class="portfolio-lightbox" title="App 1"><i class="bx bx-plus"></i></a>
+                  <a href="https://public.tableau.com/app/profile/#/viz/DashboardonUKBankCustomers/Story1"
+                    class="portfolio-details-lightbox" data-glightbox="type: external" title="Portfolio Details"><i
+                      class="bx bx-link"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 portfolio-item">
+            <div class="portfolio-wrap">
+              <img src="assets/img/tableau/wewash_usleep.png" class="img-fluid" alt="">
+              <div class="portfolio-info">
+                <h4>WeWash_USleep_dashboard</h4> -->
+                <!-- <p>T</p> -->
+                <!-- <div class="portfolio-links">
+                  <a href="assets/img/tableau/wewash_usleep.png" data-gallery="portfolioGallery"
+                    class="portfolio-lightbox" title="App 1"><i class="bx bx-plus"></i></a>
+                  <a href="https://public.tableau.com/app/profile/#/viz/WeWash_USleep_dashboard/Dashboard1"
+                    class="portfolio-details-lightbox" data-glightbox="type: external" title="Portfolio Details"><i
+                      class="bx bx-link"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+        </div>
+
+      </div>
+    </section>End Dashboard Section -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- ======= Courses Section ======= -->
+    <!-- ======= Courses Section ======= -->
+<section id="certificates" class="portfolio section-bg">
+  <div class="container" data-aos="fade-up">
+
+    <div class="section-title">
+      <h2>Online Courses & Certifications</h2>
+      <p>Below are some of my certifications showcasing my expertise in various domains.</p>
+    </div>
+
+    <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="200">
+
+      <!-- HackerRank Python Basics -->
+      <div class="col-lg-4 col-md-6 portfolio-item">
+        <div class="portfolio-wrap">
+          <img src="assets/img/certifications/HackerRank_Python_Basics.png" class="img-fluid" alt="HackerRank Python Basics Certificate">
+          <div class="portfolio-info">
+            <h4>HackerRank Python Basics</h4>
+            <div class="portfolio-links">
+              <a href="assets/img/certifications/HackerRank_Python_Basics.png" data-gallery="portfolioGallery" class="portfolio-lightbox" title="HackerRank Python Basics"><i class="bx bx-plus"></i></a>
+              <a href="https://www.hackerrank.com/certificates/iframe/fedd9bf49128" target="_blank"><i class="bx bx-link"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- HackerRank SQL Basics -->
+      <div class="col-lg-4 col-md-6 portfolio-item">
+        <div class="portfolio-wrap">
+          <img src="assets/img/certifications/HackerRank_SQL_Basics.png" class="img-fluid" alt="HackerRank SQL Basics Certificate">
+          <div class="portfolio-info">
+            <h4>HackerRank SQL Basics</h4>
+            <div class="portfolio-links">
+              <a href="assets/img/certifications/HackerRank_SQL_Basics.png" data-gallery="portfolioGallery" class="portfolio-lightbox" title="HackerRank SQL Basics"><i class="bx bx-plus"></i></a>
+              <a href="https://www.hackerrank.com/certificates/iframe/3dd8452edefd" target="_blank"><i class="bx bx-link"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- HackerRank SQL Intermediate -->
+      <div class="col-lg-4 col-md-6 portfolio-item">
+        <div class="portfolio-wrap">
+          <img src="assets/img/certifications/HackerRank_SQL_Intermediate.png" class="img-fluid" alt="HackerRank SQL Intermediate Certificate">
+          <div class="portfolio-info">
+            <h4>HackerRank SQL Intermediate</h4>
+            <div class="portfolio-links">
+              <a href="assets/img/certifications/HackerRank_SQL_Intermediate.png" data-gallery="portfolioGallery" class="portfolio-lightbox" title="HackerRank SQL Intermediate"><i class="bx bx-plus"></i></a>
+              <a href="https://www.hackerrank.com/certificates/iframe/45b55d673694" target="_blank"><i class="bx bx-link"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- PM Foundations (No Link Provided) -->
+      <div class="col-lg-4 col-md-6 portfolio-item">
+        <div class="portfolio-wrap">
+          <img src="assets/img/certifications/PM_Foundations.png" class="img-fluid" alt="Project Management Foundations Certificate">
+          <div class="portfolio-info">
+            <h4>Project Management Foundations</h4>
+            <div class="portfolio-links">
+              <a href="assets/img/certifications/PM_Foundations.png" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Project Management Foundations"><i class="bx bx-plus"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Databricks Generative AI Fundamentals -->
+      <div class="col-lg-4 col-md-6 portfolio-item">
+        <div class="portfolio-wrap">
+          <img src="assets/img/certifications/DB_GenAI.png" class="img-fluid" alt="Databricks Generative AI Fundamentals Certificate">
+          <div class="portfolio-info">
+            <h4>Databricks Generative AI Fundamentals</h4>
+            <div class="portfolio-links">
+              <a href="assets/img/certifications/DB_GenAI.png" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Databricks Generative AI Fundamentals"><i class="bx bx-plus"></i></a>
+              <a href="https://credentials.databricks.com/785f72ec-6798-488f-a659-aaa85e9f576a#acc.7wpDQANI" target="_blank"><i class="bx bx-link"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+<!-- End Courses Section -->
+
+
+    <!-- <section id="certificates" class="portfolio section-bg">
+      <div class="container" data-aos="fade-up">
+
+        <div class="section-title">
+          <h2>Online Courses & Certifications</h2>
+          <p></p>
+        </div>
+
+        <div class="row">
+          <div class="col-lg-12 d-flex justify-content-center" data-aos="fade-up" data-aos-delay="100">
+            <ul id="portfolio-flters">
+              <li data-filter="*" class="filter-active">All</li>
+              <li data-filter=".filter-bi">BI Tools</li>
+              <li data-filter=".filter-program">Programming</li>
+              <li data-filter=".filter-data">Data Science</li>
+              <li data-filter=".filter-agile">Agile & Supply Chains</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="200">
+
+
+          <div class="col-lg-4 col-md-6 portfolio-item filter-bi">
+            <div class="portfolio-wrap">
+              <img src="assets/img/certifications/tableau.png" class="img-fluid" alt="">
+              <div class="portfolio-info">
+                <h4>Tableau Certificate</h4>
+                <p></p>
+                <div class="portfolio-links">
+                  <a href="assets/img/certifications/tableau.png" data-gallery="portfolioGallery"
+                    class="portfolio-lightbox" title="Tableau"><i class="bx bx-plus"></i></a>
+                  <a href="https://www.udemy.com/certificate/UC-7de52ed8-0fd7-4bb2-85b6-e5b54e110351/"
+                    class="portfolio-details-lightbox" data-glightbox="type: external" title="Portfolio Details"><i
+                      class="bx bx-link"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 portfolio-item filter-bi">
+            <div class="portfolio-wrap">
+              <img src="assets/img/certifications/looker.png" class="img-fluid" alt="">
+              <div class="portfolio-info">
+                <h4>Tableau Certificate</h4>
+                <p></p>
+                <div class="portfolio-links">
+                  <a href="assets/img/certifications/looker.png" data-gallery="portfolioGallery"
+                    class="portfolio-lightbox" title="Looker"><i class="bx bx-plus"></i></a>
+                  <a href="https://www.udemy.com/certificate/UC-b23a5c86-a04e-4645-b27e-4e41feafa6e3/"
+                    class="portfolio-details-lightbox" data-glightbox="type: external" title="Portfolio Details"><i
+                      class="bx bx-link"></i></a>
+                </div> 
+              </div>
+            </div>
+          </div>
+
+
+          <div class="col-lg-4 col-md-6 portfolio-item filter-program">
+            <div class="portfolio-wrap">
+              <img src="assets/img/certifications/python.png" class="img-fluid" alt="">
+              <div class="portfolio-info">
+                <h4>Python Programming</h4>
+                <p></p>
+                <div class="portfolio-links">
+                  <a href="assets/img/certifications/python.png" data-gallery="portfolioGallery"
+                    class="portfolio-lightbox" title="Programming Python"><i class="bx bx-plus"></i></a>
+                  <a href="https://courses.edx.org/certificates/52a8799ad4104a2c83d76c6c58abecdb"
+                    class="portfolio-details-lightbox" data-glightbox="type: external" title="Portfolio Details"><i
+                      class="bx bx-link"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 portfolio-item filter-program">
+            <div class="portfolio-wrap">
+              <img src="assets/img/certifications/toronto-program.png" class="img-fluid" alt="">
+              <div class="portfolio-info">
+                <h4>Python Programming</h4>
+                <p></p>
+                <div class="portfolio-links">
+                  <a href="assets/img/certifications/toronto-program.png" data-gallery="portfolioGallery"
+                    class="portfolio-lightbox" title="Programming Basics"><i class="bx bx-plus"></i></a>
+                  <a href="https://www.coursera.org/account/accomplishments/certificate/WHQQUWD5DMQ5"
+                    class="portfolio-details-lightbox" data-glightbox="type: external" title="Portfolio Details"><i
+                      class="bx bx-link"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+          <div class="col-lg-4 col-md-6 portfolio-item filter-program">
+            <div class="portfolio-wrap">
+              <img src="assets/img/certifications/udemy_sql.png" class="img-fluid" alt="">
+              <div class="portfolio-info">
+                <h4>SQL Programming</h4>
+                <p></p>
+                <div class="portfolio-links">
+                  <a href="assets/img/certifications/udemy_sql.png" data-gallery="portfolioGallery"
+                    class="portfolio-lightbox" title="SQL Udemy"><i class="bx bx-plus"></i></a>
+                  <a href="https://www.udemy.com/certificate/UC-af265f7b-25bd-4a16-8b01-5269e1212b6a/"
+                    class="portfolio-details-lightbox" data-glightbox="type: external" title="Portfolio Details"><i
+                      class="bx bx-link"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 portfolio-item filter-program">
+            <div class="portfolio-wrap">
+              <img src="assets/img/certifications/sql-joins.png" class="img-fluid" alt="">
+              <div class="portfolio-info">
+                <h4>SQL Programming Joins</h4>
+                <p></p>
+                <div class="portfolio-links">
+                  <a href="assets/img/certifications/sql-joins.png" data-gallery="portfolioGallery"
+                    class="portfolio-lightbox" title="Data Camp SQL Joins"><i class="bx bx-plus"></i></a>
+                  <a href="https://www.datacamp.com/statement-of-accomplishment/course/4a2255a875b2d39adf8532396bcfba2a1180a703"
+                    class="portfolio-details-lightbox" data-glightbox="type: external" title="Portfolio Details"><i
+                      class="bx bx-link"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 portfolio-item filter-program">
+            <div class="portfolio-wrap">
+              <img src="assets/img/certifications/SQL_datacamp.png" class="img-fluid" alt="">
+              <div class="portfolio-info">
+                <h4>SQL Programming Joins</h4>
+                <p></p>
+                <div class="portfolio-links">
+                  <a href="assets/img/certifications/SQL_datacamp.png" data-gallery="portfolioGallery"
+                    class="portfolio-lightbox" title="Data Camp SQL"><i class="bx bx-plus"></i></a>
+                  <a href="https://www.datacamp.com/statement-of-accomplishment/course/0aa9c0884221adafc58d5979dff02fe9361da20f"
+                    class="portfolio-details-lightbox" data-glightbox="type: external" title="Portfolio Details"><i
+                      class="bx bx-link"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 portfolio-item filter-program">
+            <div class="portfolio-wrap">
+              <img src="assets/img/certifications/sql-hkr.png" class="img-fluid" alt="">
+              <div class="portfolio-info">
+                <h4>SQL Certification</h4>
+                <p></p>
+                <div class="portfolio-links">
+                  <a href="assets/img/certifications/sql-hkr.png" data-gallery="portfolioGallery"
+                    class="portfolio-lightbox" title="SQL Certificate"><i class="bx bx-plus"></i></a>
+                  <a href="https://www.hackerrank.com/certificates/23a35734fbd5" class="portfolio-details-lightbox"
+                    data-glightbox="type: external" title="Portfolio Details"><i class="bx bx-link"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 portfolio-item filter-program">
+            <div class="portfolio-wrap">
+              <img src="assets/img/certifications/python-basic-hkr.png" class="img-fluid" alt="">
+              <div class="portfolio-info">
+                <h4>Python Certificate</h4>
+                <p></p>
+                <div class="portfolio-links">
+                  <a href="assets/img/certifications/python-basic-hkr.png" data-gallery="portfolioGallery"
+                    class="portfolio-lightbox" title="Python Certificate"><i class="bx bx-plus"></i></a>
+                  <a href="https://www.hackerrank.com/certificates/3b245a280774
+          " class="portfolio-details-lightbox" data-glightbox="type: external" title="Portfolio Details"><i
+                      class="bx bx-link"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+          <div class="col-lg-4 col-md-6 portfolio-item filter-data">
+            <div class="portfolio-wrap">
+              <img src="assets/img/certifications/stats.png" class="img-fluid" alt="">
+              <div class="portfolio-info">
+                <h4>Python Certificate</h4>
+                <p></p>
+                <div class="portfolio-links">
+                  <a href="assets/img/certifications/stats.png" data-gallery="portfolioGallery"
+                    class="portfolio-lightbox" title="Statistics Basics"><i class="bx bx-plus"></i></a>
+                  <a href="https://www.udemy.com/certificate/UC-15451e4e-2735-46c9-b117-3c0aea467ad5/
+                    " class="portfolio-details-lightbox" data-glightbox="type: external" title="Portfolio Details"><i
+                      class="bx bx-link"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 portfolio-item filter-data">
+            <div class="portfolio-wrap">
+              <img src="assets/img/certifications/ML-seg.png" class="img-fluid" alt="">
+              <div class="portfolio-info">
+                <h4>Python Certificate</h4>
+                <p></p>
+                <div class="portfolio-links">
+                  <a href="assets/img/certifications/ML-seg.png" data-gallery="portfolioGallery"
+                    class="portfolio-lightbox" title="Machine Learning"><i class="bx bx-plus"></i></a>
+                  <a href="https://www.coursera.org/account/accomplishments/certificate/8RVZDVSDU8YK"
+                    class="portfolio-details-lightbox" data-glightbox="type: external" title="Portfolio Details"><i
+                      class="bx bx-link"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 portfolio-item filter-data">
+            <div class="portfolio-wrap">
+              <img src="assets/img/certifications/dl.png" class="img-fluid" alt="">
+              <div class="portfolio-info">
+                <h4>Python Certificate</h4>
+                <p></p>
+                <div class="portfolio-links">
+                  <a href="assets/img/certifications/dl.png" data-gallery="portfolioGallery" class="portfolio-lightbox"
+                    title="Deep Learning"><i class="bx bx-plus"></i></a>
+                  <a href="https://www.coursera.org/account/accomplishments/verify/CPQTD6R7334J"
+                    class="portfolio-details-lightbox" data-glightbox="type: external" title="Portfolio Details"><i
+                      class="bx bx-link"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 portfolio-item filter-data">
+            <div class="portfolio-wrap">
+              <img src="assets/img/certifications/dl-real-estate.png" class="img-fluid" alt="">
+              <div class="portfolio-info">
+                <h4>Python Certificate</h4>
+                <p></p>
+                <div class="portfolio-links">
+                  <a href="assets/img/certifications/dl-real-estate.png" data-gallery="portfolioGallery"
+                    class="portfolio-lightbox" title="Deep Learning Application"><i class="bx bx-plus"></i></a>
+                  <a href="https://www.coursera.org/account/accomplishments/certificate/JGMLSX9U4M76"
+                    class="portfolio-details-lightbox" data-glightbox="type: external" title="Portfolio Details"><i
+                      class="bx bx-link"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 portfolio-item filter-data">
+            <div class="portfolio-wrap">
+              <img src="assets/img/certifications/data.png" class="img-fluid" alt="">
+              <div class="portfolio-info">
+                <h4>Python Certificate</h4>
+                <p></p>
+                <div class="portfolio-links">
+                  <a href="assets/img/certifications/data.png" data-gallery="portfolioGallery"
+                    class="portfolio-lightbox" title="Data Science"><i class="bx bx-plus"></i></a>
+                  <a href="https://www.coursera.org/account/accomplishments/verify/4XHSSA3RZZYR"
+                    class="portfolio-details-lightbox" data-glightbox="type: external" title="Portfolio Details"><i
+                      class="bx bx-link"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+          <div class="col-lg-4 col-md-6 portfolio-item filter-agile">
+            <div class="portfolio-wrap">
+              <img src="assets/img/certifications/sup-chain.png" class="img-fluid" alt="">
+              <div class="portfolio-info">
+                <h4>Python Certificate</h4>
+                <p></p>
+                <div class="portfolio-links">
+                  <a href="assets/img/certifications/sup-chain.png" data-gallery="portfolioGallery"
+                    class="portfolio-lightbox" title="Supply Chain Fundamentals"><i class="bx bx-plus"></i></a>
+                  <a href="https://courses.edx.org/certificates/e905847ad28249048546499cf724771b"
+                    class="portfolio-details-lightbox" data-glightbox="type: external" title="Portfolio Details"><i
+                      class="bx bx-link"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 portfolio-item filter-agile">
+            <div class="portfolio-wrap">
+              <img src="assets/img/certifications/sup-chain-dyn.png" class="img-fluid" alt="">
+              <div class="portfolio-info">
+                <h4>Python Certificate</h4>
+                <p></p>
+                <div class="portfolio-links">
+                  <a href="assets/img/certifications/sup-chain-dyn.png" data-gallery="portfolioGallery"
+                    class="portfolio-lightbox" title="Supply Chain Dynamics"><i class="bx bx-plus"></i></a>
+                  <a href="https://courses.edx.org/certificates/ae6d248c29b1445c9a31924fe7a2d6a0"
+                    class="portfolio-details-lightbox" data-glightbox="type: external" title="Portfolio Details"><i
+                      class="bx bx-link"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 portfolio-item filter-agile">
+            <div class="portfolio-wrap">
+              <img src="assets/img/certifications/sup-chain-logi.png" class="img-fluid" alt="">
+              <div class="portfolio-info">
+                <h4>Python Certificate</h4>
+                <p></p>
+                <div class="portfolio-links">
+                  <a href="assets/img/certifications/sup-chain-logi.png" data-gallery="portfolioGallery"
+                    class="portfolio-lightbox" title="Supply Chain Logistics"><i class="bx bx-plus"></i></a>
+                  <a href="https://www.coursera.org/account/accomplishments/certificate/4N2WE23XFH6Q"
+                    class="portfolio-details-lightbox" data-glightbox="type: external" title="Portfolio Details"><i
+                      class="bx bx-link"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 portfolio-item filter-agile">
+            <div class="portfolio-wrap">
+              <img src="assets/img/certifications/six-sigma.png" class="img-fluid" alt="">
+              <div class="portfolio-info">
+                <h4>Python Certificate</h4>
+                <p></p>
+                <div class="portfolio-links">
+                  <a href="assets/img/certifications/six-sigma.png" data-gallery="portfolioGallery"
+                    class="portfolio-lightbox" title="Six Sigma Principle"><i class="bx bx-plus"></i></a>
+                  <a href="https://www.coursera.org/account/accomplishments/certificate/HVCKRFH5WGV3"
+                    class="portfolio-details-lightbox" data-glightbox="type: external" title="Portfolio Details"><i
+                      class="bx bx-link"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 portfolio-item filter-agile">
+            <div class="portfolio-wrap">
+              <img src="assets/img/certifications/agile.png" class="img-fluid" alt="">
+              <div class="portfolio-info">
+                <h4>Python Certificate</h4>
+                <p></p>
+                <div class="portfolio-links">
+                  <a href="assets/img/certifications/agile.png" data-gallery="portfolioGallery"
+                    class="portfolio-lightbox" title="Agile Fundamentals"><i class="bx bx-plus"></i></a>
+                  <a href="https://www.udemy.com/certificate/UC-ed3be6a0-7806-486c-96de-cfd5b69a4357/"
+                    class="portfolio-details-lightbox" data-glightbox="type: external" title="Portfolio Details"><i
+                      class="bx bx-link"></i></a>
+                </div>
+              </div>
+            </div>
+          </div> 
+
+
+
+        </div>
+    </section> -->
+    <!-- End Courses Section -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- ======= Testimonials Section ======= -->
+    <!-- <section id="testimonials" class="testimonials section-bg">
+      <div class="container" data-aos="fade-up">
+
+        <div class="section-title">
+          <h2>Recommendations &amp; Acknowledgements</h2>
+        </div>
+
+        <div class="testimonials-slider swiper" data-aos="fade-up" data-aos-delay="100">
+          <div class="swiper-wrapper">
+
+            <div class="swiper-slide">
+              <div class="testimonial-item">
+                <img src="assets/img/testimonials/testimonials-1.jpg" class="testimonial-img" alt="">
+                <h3>Saul Goodman</h3>
+                <h4>Ceo &amp; Founder</h4>
+                <p>
+                  <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+                  Proin iaculis purus consequat sem cure digni ssim donec porttitora entum suscipit rhoncus. Accusantium
+                  quam, ultricies eget id, aliquam eget nibh et. Maecen aliquam, risus at semper.
+                  <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+                </p>
+              </div>
+            </div>
+
+            <div class="swiper-slide">
+              <div class="testimonial-item">
+                <img src="assets/img/testimonials/testimonials-2.jpg" class="testimonial-img" alt="">
+                <h3>Sara Wilsson</h3>
+                <h4>Designer</h4>
+                <p>
+                  <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+                  Export tempor illum tamen malis malis eram quae irure esse labore quem cillum quid cillum eram malis
+                  quorum velit fore eram velit sunt aliqua noster fugiat irure amet legam anim culpa.
+                  <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+                </p>
+              </div>
+            </div>
+\
+          </div>
+          <div class="swiper-pagination"></div>
+        </div>
+
+      </div>
+    </section> -->
+    <!-- End Testimonials Section -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- ======= Contact Section ======= -->
+    <section id="contact" class="contact">
+      <div class="container" data-aos="fade-up">
+
+        <div class="section-title">
+          <h2>Contact</h2>
+        </div>
+
+        <div class="row mt-1">
+
+          <div class="col-lg-4">
+            <div class="info">
+              <div class="address">
+                <i class="bi bi-geo-alt"></i>
+                <h4>Location:</h4>
+                <p>10 Paul Robeson Blvd, NJ 08901</p>
+              </div>
+
+              <div class="email">
+                <i class="bi bi-envelope"></i>
+                <h4>Email:</h4>
+                <p>vinitbhanushali99@gmail.com</p>
+              </div>
+
+              <div class="phone">
+                <i class="bi bi-phone"></i>
+                <h4>Call:</h4>
+                <p>+1-848-437-1456</p>
+              </div>
+
+            </div>
+
+          </div>
+
+          <div class="col-lg-8 mt-5 mt-lg-0">
+
+            <form action="forms/contact.php" method="post" role="form" class="php-email-form">
+              <div class="row">
+                <div class="col-md-6 form-group">
+                  <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" required>
+                </div>
+                <div class="col-md-6 form-group mt-3 mt-md-0">
+                  <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" required>
+                </div>
+              </div>
+              <div class="form-group mt-3">
+                <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" required>
+              </div>
+              <div class="form-group mt-3">
+                <textarea class="form-control" name="message" rows="5" placeholder="Message" required></textarea>
+              </div>
+              <div class="my-3">
+                <div class="loading">Loading</div>
+                <div class="error-message"></div>
+                <div class="sent-message">Your message has been sent. Thank you!</div>
+              </div>
+              <div class="text-center"><button type="submit">Send Message</button></div>
+            </form>
+
+          </div>
+
+        </div>
+
+      </div>
+    </section><!-- End Contact Section -->
+
+  </main><!-- End #main -->
+
+  <!-- ======= Footer ======= -->
+  <footer id="footer">
+    <div class="container">
+      <h3>Vinit Bhanushali</h3>
+      <p>Thank you for taking the time to visit my page!
+      </p>
+      <div class="container" data-aos="zoom-in" data-aos-delay="100">
+        <div class="social-links">
+          <a href="https://www.linkedin.com/in/vinit-bhanushali-0760851b5/" class="linkedin" target="_blank"><i
+              class="bx bxl-linkedin"></i></a>
+          <a href="https://github.com/Vinit2212" class="linkedin" target="_blank"><i
+              class="bx bxl-github"></i></a>
+
+
+          <a href="https://www.hackerrank.com/profile/vinitbhanushali1" class="HackerRank" target="_blank">
+                <svg xmlns="http://www.w3.org/2000/svg" height="20" width="20" viewBox="0 0 512 512" fill="white">
+                    <path d="M477.5 128C463 103.1 285.1 0 256.2 0S49.3 102.8 34.8 128s-14.5 230.8 0 256 192.4 128 221.3 128S463 409.1 477.5 384s14.5-231 0-256zM316.1 414.2c-4 0-40.9-35.8-38-38.7 .9-.9 6.3-1.5 17.6-1.8 0-26.2 .6-68.6 .9-86.3 0-2-.4-3.4-.4-5.9h-79.9c0 7.1-.5 36.2 1.4 72.9 .2 4.5-1.6 6-5.7 5.9-10.1 0-20.3-.1-30.4-.1-4.1 0-5.9-1.5-5.7-6.1 .9-33.4 3-84-.2-212.7v-3.2c-9.7-.4-16.4-1-17.3-1.8-2.9-2.9 34.5-38.7 38.5-38.7s41.2 35.8 38.3 38.7c-.9 .9-7.9 1.5-16.8 1.8v3.2c-2.4 25.8-2 79.6-2.6 105.4h80.3c0-4.6 .4-34.7-1.2-83.6-.1-3.4 1-5.2 4.2-5.2 11.1-.1 22.2-.1 33.2-.1 3.5 0 4.6 1.7 4.5 5.4C333 354.6 336 341.3 336 373.7c8.9 .4 16.8 1 17.7 1.8 2.9 2.9-33.6 38.7-37.6 38.7z"/>
+                </svg>
+            </a>
+          
+
+        </div>
+      </div>
+
+      <div class="copyright">
+        &copy; Copyright <strong><span> Vinit Bhanushali Portfolio</span></strong>. All Rights Reserved
+      </div>
+      <div class="credits">
+        <!-- All the links in the footer should remain intact. -->
+        <!-- You can delete the links only if you purchased the pro version. -->
+        <!-- Licensing information: [license-url] -->
+        <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/free-html-bootstrap-template-my-resume/ -->
+        <!-- Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a> -->
+      </div>
+    </div>
+  </footer><!-- End Footer -->
+
+  <div id="preloader"></div>
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
+      class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Vendor JS Files -->
+  <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
+  <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+  <script src="assets/vendor/aos/aos.js"></script>
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="assets/vendor/typed.js/typed.umd.js"></script>
+  <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
+  <script src="assets/vendor/php-email-form/validate.js"></script>
+
+  <!-- Template Main JS File -->
+  <script src="assets/js/main.js"></script>
+
 </body>
+
 </html>
