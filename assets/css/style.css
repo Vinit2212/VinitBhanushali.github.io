@@ -1152,6 +1152,18 @@ section {
   fill: #11dbcf;
 }
 
+.services .iconbox-purple i {
+  color: #800080; /* Purple color */
+}
+
+.services .iconbox-purple:hover .icon i {
+  color: #fff;
+}
+
+.services .iconbox-purple:hover .icon path {
+  fill: #800080; /* Purple fill on hover */
+}
+
 /*--------------------------------------------------------------
 # Testimonials
 --------------------------------------------------------------*/
